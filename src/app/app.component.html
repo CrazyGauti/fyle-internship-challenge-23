@@ -1,5 +1,34 @@
-<div class="grid h-screen place-items-center">
+<!--<div class="grid h-screen place-items-center">
   <div class="font-bold text-3xl">
     Fyle Internship Challenge
   </div>
 </div>
+-->
+<!-- user-input.component.html -->
+<!-- github-search.component.html -->
+
+<div>
+  <input type="text" [(ngModel)]="username" name="username" placeholder="Enter GitHub username">
+  <button (click)="searchUser()">Search</button>
+</div>
+
+<div *ngIf="userData">
+  <h2>{{ userData.login }}</h2>
+  <img [src]="userData.avatar_url" alt="Avatar" style="width: 100px; height: 100px;">
+  <p>{{ userData.bio }}</p>
+  
+</div>
+
+  <div *ngIf="repositories.length > 0">
+    <h3>Repositories</h3>
+    <ul>
+      <li *ngFor="let repo of repositories">
+        <a [href]="repo.html_url" target="_blank">{{ repo.name }}</a>
+        <p>{{ repo.description }}</p>
+      </li>
+    </ul>
+  </div>
+
+
+
+
